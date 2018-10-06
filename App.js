@@ -1,12 +1,54 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  AppRegistry,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class App extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      isVisible:true
+    }
+  }
+
+  handlePicker= () => {
+    this.setState({
+      isVisible:false
+    })
+  };
+
+  hidePicker= () => {
+    this.setState({
+      isVisible:false
+    })
+  };
+
+  showPicker= () => {
+    this.setState({
+      isVisible:true
+    })
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Text>Please show me this text</Text>
+      /*<View style={styles.container}>
+        <Text>Please show me this text</Text>
+        <TouchableOpacity style={styles.button} onPress={this.showPicker()}>
+          <Text style={styles.text}>Show DatePicker</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isVisible}
+          onConfirm={this.handlePicker}
+          onCancel={this.hidePicker}
+        />
+      </View>*/
     );
   }
 }
@@ -18,4 +60,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    width:250,
+    height:50,
+    backgroundColor:'#330066',
+    borderRadius: 30,
+    justifyContent: 'center',
+    marginTop: 15
+  },
+  text: {
+    fontSize: 18,
+    color: "white",
+    textAlign: "center"
+  }
 });
