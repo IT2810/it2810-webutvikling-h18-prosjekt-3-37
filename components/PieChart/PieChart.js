@@ -8,10 +8,6 @@ export default class PieChart extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      completedTasks: this.props.completedTasks,
-      totalTasks: this.props.totalTasks
-    };
   }
 
   render() {
@@ -22,8 +18,8 @@ export default class PieChart extends React.Component {
         labelRadius={80}
         colorScale={["#44FF44", "#888888" ]}
         data={[
-          { x: "Completed: " + this.state.completedTasks, y: (this.state.completedTasks / this.state.totalTasks)* 100 },
-          { x: "Remaining: " + (this.state.totalTasks - this.state.completedTasks), y: 100 - ((this.state.completedTasks / this.state.totalTasks)* 100)}
+          { x: "Completed: " + this.props.completedTasks, y: (this.props.completedTasks / this.props.totalTasks)* 100 },
+          { x: "Remaining: " + (this.props.totalTasks - this.props.completedTasks), y: 100 - ((this.props.completedTasks / this.props.totalTasks)* 100)}
         ]}
       />
     );
