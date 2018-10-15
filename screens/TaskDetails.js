@@ -2,7 +2,7 @@
 import React from 'react';
 import {
   Container, Header, Content, Text, Button, Left, Icon, Body, Title, DatePicker, Form, Textarea, Item, Input,
-  Right, Card, CardItem, Thumbnail
+  Right, Card, CardItem, StyleProvider
 } from 'native-base';
 
 export default class TaskDetails extends React.Component {
@@ -55,7 +55,7 @@ export default class TaskDetails extends React.Component {
                 </Body>
                 <Right>
                   <Button hasText transparent onPress={()=>this.setState({edit:true})}>
-                    <Text>edit</Text>
+                    <Text style={{color:'blue'}} >edit</Text>
                   </Button>
                 </Right>
               </CardItem>
@@ -90,7 +90,7 @@ export default class TaskDetails extends React.Component {
 
               <Right>
                 <Button transparent success onPress={()=>this.setState({edit:false})}>
-                  <Text>done</Text>
+                  <Text style={{color:'blue'}} >done</Text>
                 </Button>
               </Right>
             </Header>
