@@ -3,6 +3,7 @@ import { StyleSheet, View, Platform, StatusBar } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, List, ListItem, CheckBox } from 'native-base';
 import Todo from '../components/Todo/Todo';
+import TaskDetails from './TaskDetails';
 import PieChart from '../components/PieChart/PieChart';
 
 /*
@@ -44,7 +45,7 @@ class HomeScreen extends React.Component {
     })
   }
 
-  handleClickCheckbox (index) {
+  handleClickCheckbox(index) {
     let tempTodos = this.state.todos.slice();
     tempTodos[index].checked = !tempTodos[index].checked;
     this.setState({
@@ -53,11 +54,13 @@ class HomeScreen extends React.Component {
     this.updateTaskCount();
   }
 
-  renderTodo(name, checked, index) {
-    return <Todo onClick={this.handleClickCheckbox.bind(this, index)} name={ name } checked={ checked } key={ index }/>
+  handleClickButton(index) {
+    this.props.navigation.navigate('TaskDetails');
   }
 
-
+  renderTodo(name, checked, index) {
+    return <Todo onClick={this.handleClickCheckbox.bind(this, index)} onClickButton={this.handleClickButton.bind(this, index)} name={ name } checked={ checked } key={ index }/>
+  }
 
   render() {
     return (
@@ -82,24 +85,37 @@ class HomeScreen extends React.Component {
     );
   }
 }
+
+const navigationConfig = {
+  initialRouteName: 'Todo',
+  navigationOptions: {
+    headerTintColor: "white",
+    headerTitleStyle: {
+      color: "white",
+    },
+    headerStyle: {
+      backgroundColor: "#645CFF",
+    }
+  }
+}
+
+
 export default createStackNavigator({
     Todo: {
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => ({
         title: "Activities",
         headerLeft: <Icon style={styles.menuIcon} name="menu" size={50} onPress={() => navigation.toggleDrawer() } />,
-        headerStyle: {
-          backgroundColor: "#645CFF",
-        },
-        headerTitleStyle: {
-          color: "white"
-        }
+      })
+    },
+    TaskDetails: {
+      screen: TaskDetails,
+      navigationOptions: ({ navigation }) => ({
+        title: "Details",
       })
     }
   },
-  {
-    initialRouteName: 'Todo',
-  }
+  navigationConfig
 );
 
 const styles = StyleSheet.create({

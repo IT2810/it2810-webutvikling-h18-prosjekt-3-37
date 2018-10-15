@@ -13,7 +13,7 @@ export default class Todo extends React.Component {
 
   render() {
     return (
-      <ListItem>
+      <ListItem onPress={() => this.props.onClickButton()}>
         <CheckBox onPress={() => this.props.onClick()} checked={ this.props.checked } />
         <Body><Text> { this.state.name } </Text></Body>
       </ListItem>
