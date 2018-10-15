@@ -1,10 +1,11 @@
 import React from 'react';
+import { Image } from 'react-native';
 import {
   StyleSheet
 } from 'react-native';
 import {
   Container, Header, Content, Text, Button, Left, Icon, Body, Title, DatePicker, Form, Textarea, Item, Input,
-  Right, H1, H2, H3, H4
+  Right, Card, CardItem, Thumbnail
 } from 'native-base';
 
 export default class TaskDetails extends React.Component {
@@ -14,8 +15,8 @@ export default class TaskDetails extends React.Component {
     this.state = {
       chosenDate: new Date(),
       loading: true,
-      title: 'Task Details',
-      description: '',
+      title: 'Task Name',
+      description: 'Click the EDIT button to set this description, the due date and the name of this task',
       edit: false,
       subject: 'default'
     };
@@ -38,7 +39,7 @@ export default class TaskDetails extends React.Component {
   setEdit(e){
     this.setState({edit:e})
   }
-
+  /*https://visualpharm.com/assets/922/Todo%20List-595b40b65ba036ed117d45fe.svg */
   render() {
     if (this.state.loading) {
       return <Expo.AppLoading />;
@@ -53,7 +54,7 @@ export default class TaskDetails extends React.Component {
               </Button>
             </Left>
             <Body>
-              <Title>{this.state.title}</Title>
+              <Title>TO-DO</Title>
             </Body>
             <Right>
               <Button hasText transparent onPress={()=>this.setState({edit:true})}>
@@ -62,17 +63,27 @@ export default class TaskDetails extends React.Component {
             </Right>
           </Header>
           <Content padder>
-            <H3>Subject: {'\n'+this.state.subject+ '\n'}</H3>
-            <H3>{'\n'}Due date:</H3>
-            <Text>
-              {this.state.chosenDate.toString().substr(4, 12)}
-            </Text>
-            <H3>
-              {"\n"}Description:
-            </H3>
-            <Text>
-              {this.state.description}
-            </Text>
+              <Card style={{flex: 0}}>
+                <CardItem bordered>
+                  <Left>
+                      <Text>{this.state.title}</Text>
+                    <Body>
+                      <Text note> Due date: {this.state.chosenDate.toString().substr(4, 12)}</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                  <Text>
+                    {this.state.description}
+                  </Text>
+                  </Body>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                  </Left>
+                </CardItem>
+              </Card>
           </Content>
         </Container>
       );
@@ -87,7 +98,7 @@ export default class TaskDetails extends React.Component {
               </Button>
             </Left>
             <Body>
-            <Title>{this.state.title}</Title>
+            <Title>TO-DO</Title>
             </Body>
             <Right>
               <Button hasText transparent onPress={()=>this.setState({edit:false})}>
@@ -141,3 +152,17 @@ const styles = StyleSheet.create({
     })
   }
 });
+
+/*
+<H3>Subject: {'\n'+this.state.subject+ '\n'}</H3>
+            <H3>{'\n'}Due date:</H3>
+            <Text>
+              {this.state.chosenDate.toString().substr(4, 12)}
+            </Text>
+            <H3>
+              {"\n"}Description:
+            </H3>
+            <Text>
+              {this.state.description}
+            </Text>
+ */
