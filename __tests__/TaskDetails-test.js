@@ -17,8 +17,7 @@ jest.mock('Platform', () => {
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <TaskDetails  />
+    <TaskDetails />
   ).toJSON();
-
   expect(tree).toMatchSnapshot();
 });

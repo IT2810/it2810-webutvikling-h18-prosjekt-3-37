@@ -33,8 +33,14 @@ export default class TaskDetails extends React.Component {
   setDate(newDate) {
     this.setState({ chosenDate: newDate });
   }
-  setEdit(e){
-    this.setState({edit:e})
+
+  _setEdit(){
+    if(edit){
+      this.setState({edit:false})
+    }
+    else {
+      this.setState({edit:true})
+    }
   }
   /*https://visualpharm.com/assets/922/Todo%20List-595b40b65ba036ed117d45fe.svg */
   render() {
