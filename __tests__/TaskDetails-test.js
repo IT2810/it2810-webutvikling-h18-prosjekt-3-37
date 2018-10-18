@@ -6,12 +6,19 @@ import TaskDetails from '../screens/TaskDetails';
 import renderer from 'react-test-renderer';
 
 it('works', () => {
-  expect(1).toBe(1);
+  expect(true).toBeTruthy();
+});
+
+jest.mock('Platform', () => {
+  const Platform = require.requireActual('Platform');
+  Platform.OS = 'android';
+  return Platform;
 });
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <TaskDetails />
+    <TaskDetails  />
   ).toJSON();
+
   expect(tree).toMatchSnapshot();
 });

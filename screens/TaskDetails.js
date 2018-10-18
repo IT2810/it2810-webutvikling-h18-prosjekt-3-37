@@ -1,8 +1,8 @@
 
 import React from 'react';
 import {
-  Container, Header, Content, Text, Button, Left, Icon, Body, Title, DatePicker, Form, Textarea, Item, Input,
-  Right, Card, CardItem, StyleProvider
+  Container, Header, Content, Text, Button, Left, Body, DatePicker, Form, Textarea, Item, Input,
+  Right, Card, CardItem
 } from 'native-base';
 
 export default class TaskDetails extends React.Component {
