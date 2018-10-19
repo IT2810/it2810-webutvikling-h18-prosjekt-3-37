@@ -2,7 +2,7 @@
 import React from 'react';
 import {
   Container, Header, Content, Text, Button, Left, Icon, Body, Title, DatePicker, Form, Textarea, Item, Input,
-  Right, Card, CardItem, StyleProvider
+  Right, Card, CardItem, StyleProvider, Footer
 } from 'native-base';
 
 export default class TaskDetails extends React.Component {
@@ -10,12 +10,17 @@ export default class TaskDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      //startdate: automatically set to the current day
+      startDate: new Date(),
+      //chosendate: set by pressing the edit button, automatically the current date
       chosenDate: new Date(),
       loading: true,
-      title: 'Task Name',
-      description: 'Click the EDIT button to set this description, the due date and the name of this task',
+      title: 'Activity Name',
       edit: false,
-      subject: 'default'
+      //the number of steps
+      steps:0,
+      //the goal number of steps:
+      goal:0
     };
     this.setDate = this.setDate.bind(this);
   }
@@ -36,7 +41,7 @@ export default class TaskDetails extends React.Component {
   setEdit(e){
     this.setState({edit:e})
   }
-  /*https://visualpharm.com/assets/922/Todo%20List-595b40b65ba036ed117d45fe.svg */
+
   render() {
     if (this.state.loading) {
       return <Expo.AppLoading />;
@@ -51,7 +56,6 @@ export default class TaskDetails extends React.Component {
                   <Text>{this.state.title}</Text>
                 </Left>
                 <Body>
-                <Text note> Due date: {'\n'+this.state.chosenDate.toString().substr(4, 12)}</Text>
                 </Body>
                 <Right>
                   <Button hasText transparent onPress={()=>this.setState({edit:true})}>
@@ -59,16 +63,24 @@ export default class TaskDetails extends React.Component {
                   </Button>
                 </Right>
               </CardItem>
-              <CardItem>
+              <CardItem bordered>
+                <Left>
+                  <Text> Start date: {'\n'+this.state.startDate.toString().substr(4, 12)}</Text>
+                </Left>
                 <Body>
-                <Text>
-                  {this.state.description}
-                </Text>
+                <Text> Due date: {'\n'+this.state.chosenDate.toString().substr(4, 12)}</Text>
                 </Body>
               </CardItem>
-              <CardItem>
+              <CardItem bordered Footer >
                 <Left>
+                  <Text> Steps:</Text>
                 </Left>
+                <Body>
+                <Text> {this.state.steps}         Goal: </Text>
+                </Body>
+                <Right>
+                  <Text> {this.state.goal} </Text>
+                </Right>
               </CardItem>
             </Card>
           </Content>
@@ -109,11 +121,9 @@ export default class TaskDetails extends React.Component {
             <Text>
               Date: {this.state.chosenDate.toString().substr(4, 12)}
             </Text>
-            <Form>
-            <Textarea rowSpan={5} bordered placeholder="Write a short description of your Task"
-                      onChangeText={(text) => this.setState({description:text})}
+            <Input placeholder='Set goal number of steps'
+                   onChangeText={(text) => this.setState({goal:text})}
             />
-            </Form>
           </Content>
         </Container>
       );
