@@ -9,6 +9,12 @@ it('works', () => {
   expect(1).toBe(1);
 });
 
+jest.mock('Platform', () => {
+    const Platform = require.requireActual('Platform');
+    Platform.OS = 'android';
+    return Platform;
+});
+
 it('renders correctly', () => {
   const tree = renderer.create(
     <TaskDetails />
