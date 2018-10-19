@@ -24,11 +24,19 @@ class HomeScreen extends React.Component {
           <Content contentContainerStyle={styles.content}>
           <List dataArray={keys}
             renderRow={(item) =>
-              <ListItem onPress={() => {this.props.navigation.navigate('TaskScreen', {taskName: this.state.data[item]["name"]}) }}>
+              <ListItem icon onPress={() => {this.props.navigation.navigate('TaskScreen', {taskName: this.state.data[item]["name"]}) }}>
+              <Left>
+              <Button danger onPress={() => {this.deleteTask(item)}}>
+              <Icon name='trash' />
+              </Button>
+              </Left>
+              <Body>
                 <Text>{this.state.data[item]["name"]}</Text>
+              </Body>
               </ListItem>
             }>
           </List>
+
           <Item regular>
             <Input placeholder='Task name' onChangeText={(text) => this.setState({newTaskName: text})}/>
           </Item>
@@ -87,6 +95,15 @@ class HomeScreen extends React.Component {
         data: {taskName: {"name": taskName}}
       });
     }
+  }
+
+  deleteTask(taskName) {
+    AsyncStorage.removeItem(taskName, (err, res) => {});
+    let localData = this.state.data;
+    delete localData[taskName];
+    this.setState({
+      data: localData
+    });
   }
 }
 
