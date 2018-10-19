@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontSize": 24,
+        "lineHeight": 27,
+      },
+      Object {
+        "paddingBottom": 50,
+        "textAlign": "center",
+      },
+    ]
+  }
+>
+  Add some todos!
+</Text>
+`;
