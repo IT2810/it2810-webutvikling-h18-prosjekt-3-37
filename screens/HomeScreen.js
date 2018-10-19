@@ -40,14 +40,12 @@ class HomeScreen extends React.Component {
           <Item regular>
             <Input placeholder='Task name' onChangeText={(text) => this.setState({newTaskName: text})}/>
           </Item>
-          <Button full onPress={() => this.addTask(this.state.newTaskName)}>
-            <Text>Add task</Text>
-          </Button>
+
           </Content>
           <Footer>
-            <FooterTab style={styles.footer}>
-              <Button full>
-                <Text>Gruppe 37</Text>
+            <FooterTab>
+              <Button full onPress={() => this.addTask(this.state.newTaskName)}>
+                <Text>Add task</Text>
               </Button>
             </FooterTab>
           </Footer>
@@ -68,7 +66,9 @@ class HomeScreen extends React.Component {
         stores.map((result, i, store) => {
           let key = store[i][0];
           let value = store[i][1];
-          localItems[key] = JSON.parse(value);
+          if (JSON.parse(value)["type"] === "task") {
+            localItems[key] = JSON.parse(value);
+          }
         });
         this.setState({
           data: localItems
@@ -79,24 +79,16 @@ class HomeScreen extends React.Component {
 
   //Adds a task with the name of the provided argument
   addTask(taskName) {
-    let task = { name: taskName};
+    let task = { name: taskName, type: "task"};
     AsyncStorage.setItem(taskName, JSON.stringify(task), () => {});
-    //Regular add
-    if (this.state.data !== null) {
-      let localData = this.state.data;
-      localData[taskName] = {"name": taskName};
-      this.setState({
-        data: localData
-      });
-    }
-    //First addition to the list
-    else {
-      this.setState({
-        data: {taskName: {"name": taskName}}
-      });
-    }
+    let localData = this.state.data;
+    localData[taskName] = {"name": taskName, "type": "task"};
+    this.setState({
+      data: localData
+    });
   }
 
+  //Deletes task from the AsyncStorage and updates state
   deleteTask(taskName) {
     AsyncStorage.removeItem(taskName, (err, res) => {});
     let localData = this.state.data;
@@ -157,8 +149,5 @@ const styles = StyleSheet.create({
   menuIcon: {
     padding: 15,
     color: "white"
-  },
-  footer: {
-    backgroundColor: "#645CFF",
   }
 })
