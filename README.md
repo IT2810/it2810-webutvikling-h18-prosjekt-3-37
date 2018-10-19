@@ -11,8 +11,6 @@ Foruten å velge vanlige tasks, kan man også velge **activity**. Dette er direk
  
 Under planleggingsfasene, ble vi enige om at dette var et produkt som vi ikke hadde funnet på markedet, men som vi egentlig har leitet etter. Vi håper appen skal gjøre det letter å nå dine mål, og at du dermed ender opp med å jobbe mer effektivt.
 
-### Utover standard React Native UI-problematikk:
-Skritteller (eget mål i appen)
 
 ### Teknologi
 **Expo, React Native.**
@@ -45,7 +43,7 @@ For de som skal teste appen og bruker iPhone, kan det anbefales å installere an
 
 Forøvrig er appen testet og fungerer på Samsung S6 Edge, Samsung S8, Huawei Honor, Nexus 5X(emulator) og Pixel 2(emulator).
 
-Utviklingsmetode
+### Utviklingsmetode
 Vi startet prosjektet med retrospect fra prosjekt 2, og alle på gruppa var åpne for å gjøre en del endringer. Grunnen til dette var både egne erfaringer, samt tilbakemeldinger fra andre peer-review. Issuene ble utarbeidet I fellesskap, for å få en felles forståelse for de oppgavene som skulle gjøres.
 En annen ting vi ønsket å endre var hyppigere møter. Dette startet ganske bra, men ble etter hvert ganske langt i mellom. Tenkte også vi skulle få til en litt jevnere arbeidsfordelingen denne gangen, men det ble etter hvert litt skeivt fordelt da programmeringskunnskaper varierte stort i gruppen.
  
@@ -106,18 +104,28 @@ Naviger til prosjektet ditt i terminalen og skriv:
 I dokumentasjonen finner man veldig mye om hvordan man bruker og tilpasser komponentene.
 
 ### Testing
-- Systematisk enhetstesting. (Jest). Rammeverk som implementerer test-støtte i JS. Gjennom prosjektet har vi kontinuerlig benyttet våre egne telefoner, samt Android Studio Emulator for å teste funksjonaliteten. 
+Tester forsikrer oss om at all ønsket funksjonalitet virker, samt at grensesnittet renderer(konverteres) på korrekt måte. Vi har utviklet testene i henhold til oppgaven: med bruk av jest. Å få Jest til å kjøre ordentlig og uten error har det gått med utallige timer på. Det tok mye tid å endre på package.json, prøve forskjellige “transform” og “transformIgnorePatterns”, bruke --save-dev i kommandoene i terminalen - eller ikke bruke --save-dev, jest eller npm test? også videre. Omsider har vi fått testene til å kjøre uten mye om, men ganske mye men.
 
-- Manuelle tester; simulerte bruk av appen. Sjekket om det var forventet oppførsel. 
-**OBS!** For å kjøre testene er du nødt til å:
-1. 'npm i jest-cli –global'  ; innstallerer lokalt
-2. cd … ; Åpne terminal i rotmappe
-3. 'jest (jest –coverage)' ; starter testene
- 
- 
-Testene burde være deterministiske. Altså at de gir det samme svaret hver gang de kjøres uten at komponenten har endret seg.
- 
-Testene forsikrer oss om at all ønsket funksjonalitet virker, samt at grensesnittet renderer(konverteres) på korrekt måte.
+Mye av funksjonaliteten vår går på Render() funksjonen og å legge til/fjerne elementer fra lister. Vi har få enkeltstående funksjoner som egner seg bra for unit-testing. I motsetning består våre tester av typen “snapshot” som sjekker at komponentene renderer skikkelig. Slik vi har forstått er snapshot-testing tilstrekkelig i denne oppgaven.
+
+Deler av grunnen til at testingen har tatt lang tid er at NativeBase og Jest ikke vil samarbeide. Etter timevis med googling har vi dessverre ikke funnet løsningen på dette problemet. 
+
+For å kjøre testene kjør disse kommandoene inne i repoet, i terminalen:
+
+1. npm install --save-dev jest
+2. npm i jest-cli --global
+3. npm i jest-expo --save-dev
+bruk “jest” eller “jest -u” for å kjøre testene
+
+Gjennom prosjektet har vi kontinuerlig benyttet våre egne telefoner, samt Android Studio for å teste funksjonaliteten. (noe problematikk knyttet opp mot ios, men det skal ikke være noen platform-spesifikke komponenter, og det skal dermed heller ikke være noe problem å kjøre appen på ios.) 
+
+
+### Mangler (ting som ikke ble gjort)
+Det ble en del problemer mot slutten av prosjektet, og vi valgte å fjerne skritteller-funksjonen da 
+1) Dette er en prototype 
+2) Funksjonen er ikke nødvendig for ToDo-appen vår 
+3) Vi har allerede gjennomført punktet om å ha komponenter utover standard React Native UI-problematikk. (eks. Navigation)
+
 
 ### Kilder
 - [Getting started with react native](https://www.safaribooksonline.com/library/view/getting-started-with/9781785885181/ch01.html)
