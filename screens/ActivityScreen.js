@@ -3,15 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, List, ListItem, CheckBox } from 'native-base';
-import Todo from '../components/Todo/Todo';
 
-/*
-  TODO:
-  Add loading and storing off Activities
-  Add delete, add and edit to Activities
-  Add testing
-  +++
-*/
+
 
 class ActivityScreen extends React.Component {
   constructor(props) {
@@ -54,19 +47,11 @@ class ActivityScreen extends React.Component {
     this.updateTaskCount();
   }
 
-  renderTodo(name, checked, index) {
-    return <Todo name={ name } checked={ checked } key={ index }/>
-  }
-
   render() {
     return (
       <Container>
         <Content contentContainerStyle={styles.content}>
-          <List>
-            { this.state.todos.map((item, key)=>(
-              this.renderTodo(item.name, item.checked, key))
-            )}
-          </List>
+
         </Content>
         <Footer >
           <FooterTab style={styles.footer}>
