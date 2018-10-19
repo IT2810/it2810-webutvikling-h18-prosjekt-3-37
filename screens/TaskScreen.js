@@ -17,6 +17,7 @@ export default class TaskScreen extends React.Component {
     };
   }
 
+  //Adds a new todo to state and AsyncStorage
   addTodo(newTodo) {
     let task = {"name": newTodo, "type": "todo", "checked": false, "parent": this.state.title}
     AsyncStorage.setItem(this.state.title + "_" + newTodo, JSON.stringify(task), () => {});
@@ -28,6 +29,7 @@ export default class TaskScreen extends React.Component {
     this.updateTaskCount();
   }
 
+  //Deletes the todo connected to the passed argument
   deleteTodo(taskName) {
     AsyncStorage.removeItem(taskName, (err, res) => {});
     let localTodos = this.state.todos;
@@ -38,6 +40,7 @@ export default class TaskScreen extends React.Component {
     this.updateTaskCount();
   }
 
+  //Keeps track of total amount of tasks, and number of completed tasks
   updateTaskCount() {
     let completedCount = 0;
     let totalCount = Object.keys(this.state.todos).length;
@@ -50,13 +53,9 @@ export default class TaskScreen extends React.Component {
       completedTasks: completedCount,
       totalTasks: totalCount
     })
-
   }
 
-  getCheckboxState(name) {
-    return this.state.todos[name]["checked"];
-  }
-
+  //Eventhandler for a click on a todo
   handleClickCheckbox(name) {
     let localTodos = this.state.todos;
     localTodos[name]["checked"] = !localTodos[name]["checked"];
@@ -64,20 +63,22 @@ export default class TaskScreen extends React.Component {
       todos: localTodos
     }, () => {
       this.updateTaskCount();
-      this.getCheckboxState(name);
       AsyncStorage.setItem(name, JSON.stringify(localTodos[name]), () => {});
     })
+    return this.state.todos[name]["checked"];
   }
 
+  //Eventhandler for clicking the trashbin, deletes the todo
   handleClickButton(name) {
     this.deleteTodo(name);
   }
 
+  //Fetches all the neccesairy data from memory and stores it in state.
   componentWillMount() {
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, stores) => {
         let localItems = {};
-        //Iterates through all items in the object
+        //Iterates through all items in the object if the item is a todo item and it belongs to the selected task; item is stored in state
         stores.map((result, i, store) => {
           let key = store[i][0];
           let value = store[i][1];
@@ -88,7 +89,6 @@ export default class TaskScreen extends React.Component {
             }
           }
         });
-
         this.setState({
           todos: localItems,
           dataLoaded: true
@@ -98,7 +98,7 @@ export default class TaskScreen extends React.Component {
       });
     });
   }
-
+  //Checkbox doesn't update due to async state, should have been implemented as a component
   render() {
     if (this.state.dataLoaded) {
       let keys = Object.keys(this.state.todos);
@@ -114,10 +114,10 @@ export default class TaskScreen extends React.Component {
               </Button>
               </Left>
               <Body>
-                <Text>{this.state.todos[item]["name"]}</Text>
+                <Text>{ this.state.todos[item]["name"] }</Text>
               </Body>
               <Right>
-                <CheckBox checked={this.state.todos[item]["checked"]} />
+                <CheckBox checked={this.state.todos[item]["checked"]}/>
               </Right>
               </ListItem>
             }>

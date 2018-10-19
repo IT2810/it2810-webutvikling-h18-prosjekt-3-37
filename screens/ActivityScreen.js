@@ -38,6 +38,7 @@ class ActivityScreen extends React.Component {
   setDate(newDate) {
     this.setState({ chosenDate: newDate });
   }
+
   setEdit(e){
     this.setState({edit:e})
   }
