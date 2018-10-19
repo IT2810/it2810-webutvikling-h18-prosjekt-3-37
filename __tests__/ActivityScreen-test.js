@@ -2,8 +2,6 @@
 import 'react-native';
 import React from 'react';
 import ActivityScreen from '../screens/ActivityScreen';
-import {renderToDo} from '../screens/ActivityScreen';
-import Todo from '../components/Todo/Todo';
 import renderer from 'react-test-renderer';
 
 it('works', () => {

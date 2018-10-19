@@ -7,6 +7,7 @@ import PieChart from '../PieChart/PieChart'
 
 
 it('renders correctly', () => {
+    jest.useFakeTimers();
     const tree = renderer.create(<PieChart />);
     expect(tree).toMatchSnapshot();
 });

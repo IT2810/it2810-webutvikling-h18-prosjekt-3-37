@@ -2,7 +2,6 @@ import React from "react";
 import HomeScreen from "../screens/HomeScreen";
 import renderer from "react-test-renderer";
 
-jest.mock("react-native-gesture-handler", () => {});
 
 
 describe("Testing HomeScreen", () => {

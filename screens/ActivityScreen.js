@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, List, ListItem, CheckBox } from 'native-base';
-import Todo from '../components/Todo/Todo';
+
 
 /*
   TODO:
