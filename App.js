@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation';
 import HomeScreen from "./screens/HomeScreen.js";
 import ActivityScreen from "./screens/ActivityScreen.js";
@@ -29,6 +29,7 @@ export default class App extends React.Component {
     } else {
       return(
         <Container>
+        <StatusBar backgroundColor="black" barStyle="light-content" />
         <RootStack />
         </Container>
       );
