@@ -1,19 +1,19 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, AsyncStorage } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, List, ListItem, CheckBox } from 'native-base';
 import Todo from '../components/Todo/Todo';
+import TaskDetails from './TaskDetails';
+import PieChart from '../components/PieChart/PieChart';
 
 /*
   TODO:
-  Add loading and storing off Activities
-  Add delete, add and edit to Activities
+  Add loading and storing off todos
+  Add delete, add and edit to todos
   Add testing
-  +++
 */
 
-class ActivityScreen extends React.Component {
+export default class TaskScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,7 @@ class ActivityScreen extends React.Component {
       todos: [{name: null, checked: null}, {name: "Label 2", checked: true}, {name: "Label 3", checked: false}, {name: "Label 4", checked: true}, {name: "Label 5 ", checked: true}]
     };
   }
+
 
   setTodos(newTodo) {
     let tempTodos = this.state.todos.slice();
@@ -45,7 +46,7 @@ class ActivityScreen extends React.Component {
     })
   }
 
-  handleClickCheckbox (index) {
+  handleClickCheckbox(index) {
     let tempTodos = this.state.todos.slice();
     tempTodos[index].checked = !tempTodos[index].checked;
     this.setState({
@@ -54,11 +55,17 @@ class ActivityScreen extends React.Component {
     this.updateTaskCount();
   }
 
+  handleClickButton(index) {
+    this.props.navigation.navigate('TaskDetails');
+  }
+
   renderTodo(name, checked, index) {
-    return <Todo name={ name } checked={ checked } key={ index }/>
+    return <Todo onClick={this.handleClickCheckbox.bind(this, index)} onClickButton={this.handleClickButton.bind(this, index)} name={ name } checked={ checked } key={ index }/>
   }
 
   render() {
+    const { params } = this.props.navigation.state;
+    const taskName = params ? params.itemId : null;
     return (
       <Container>
         <Content contentContainerStyle={styles.content}>
@@ -67,8 +74,10 @@ class ActivityScreen extends React.Component {
               this.renderTodo(item.name, item.checked, key))
             )}
           </List>
+          <PieChart totalTasks={this.state.totalTasks} completedTasks={this.state.completedTasks} />
         </Content>
-        <Footer >
+
+        <Footer>
           <FooterTab style={styles.footer}>
             <Button full>
               <Text>Gruppe 37</Text>
@@ -79,27 +88,6 @@ class ActivityScreen extends React.Component {
     );
   }
 }
-
-export default createStackNavigator({
-    Activities: {
-      screen: ActivityScreen,
-      navigationOptions: ({ navigation }) => ({
-        title: "Activities",
-        headerLeft: <Icon style={styles.menuIcon} name="menu" size={50} onPress={() => navigation.toggleDrawer() } />,
-        headerStyle: {
-          backgroundColor: "#645CFF",
-        },
-        headerTitleStyle: {
-          color: "white"
-        }
-      })
-    }
-  },
-  {
-    initialRouteName: 'Activities',
-  }
-);
-
 const styles = StyleSheet.create({
   content: {
     flex: 1,
@@ -113,3 +101,15 @@ footer: {
   backgroundColor: "#645CFF",
 }
 })
+
+
+let UID123_object = {
+ name: 'Chris',
+ age: 30,
+ traits: {hair: 'brown', eyes: 'brown'},
+};
+// You only need to define what will be added or updated
+let UID123_delta = {
+ age: 31,
+ traits: {eyes: 'blue', shoe_size: 10},
+};
