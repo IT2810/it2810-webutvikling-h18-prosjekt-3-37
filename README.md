@@ -57,7 +57,7 @@ I alle våre “tutorials” tar vi utgangspunkt i at du allerede har node, npm 
 [2](https://www.npmjs.com/))
 [3](https://nodejs.org/en/)
 
-- NativeBase:
+**NativeBase:**
 [Documentation](https://docs.nativebase.io/docs/GetStarted.html)
 NativeBase er et bibliotek for UI-komponenter i React Native. Det er gratis, open-source og fungerer på både IOS og Android(og Web). NativeBase gjør det veldig lett å style komponentene sine, og gjør at de lett kan se bra ut.
 
@@ -86,7 +86,7 @@ For å importer komponenten du vil bruke, for eksempel 'Button' fra NativeBase, 
 
 Inkluder komponenten ved hjelp av kode-eksemplet du finner i dokumentasjonen.
 
-- VictoryNative:
+**VictoryNative:**
 https://formidable.com/open-source/victory/docs/native/
 VictoryNative gjør det enkelt å lage grafiske fremstillinger som kan tilpasses mye.
 
@@ -98,13 +98,13 @@ Naviger til prosjektet ditt i terminalen og skriv:
 
 **Bruk:**
 1. Lag en liste, i renders return: lag f.eks. en 
-<VictoryChart>
-<VictoryBar data={navn på lista}>
-</VictoryChart>
+"<VictoryChart>
+   <VictoryBar data={navn på lista}>
+</VictoryChart>"
 I dokumentasjonen finner man veldig mye om hvordan man bruker og tilpasser komponentene.
 
 ### Testing
-- Systematisk enhetstesting. (Jest). Rammeverk som implementerer test-støtte i JS. Gjennom prosjektet har vi kontinuerlig benyttet våre egne telefoner, samt Android Studio for å teste funksjonaliteten. 
+- Systematisk enhetstesting. (Jest). Rammeverk som implementerer test-støtte i JS. Gjennom prosjektet har vi kontinuerlig benyttet våre egne telefoner, samt Android Studio Emulator for å teste funksjonaliteten. 
 
 - Manuelle tester; simulerte bruk av appen. Sjekket om det var forventet oppførsel. 
 **OBS!** For å kjøre testene er du nødt til å:
