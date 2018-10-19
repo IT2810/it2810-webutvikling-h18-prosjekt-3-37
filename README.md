@@ -6,8 +6,9 @@ Dersom man går inn på en spesifikt **task**, kommer de ulike oppgavene(todos) 
 
 ### Activity:
 Foruten å velge vanlige tasks, kan man også velge **activity**. Dette er direkte knyttet opp mot skrittelleren. Målet kan derfor f.eks være 40.000 skritt innen neste mandag. Dette er et sted det ville vært naturlig å utvide, både med flere typer mål og flere tidskriterier, som for eksempel, gjentagende(daglig, ukentlig, osv), knyttet til ukedag eller lignende.
- 
-(Bilde av appen)
+
+
+
  
 Under planleggingsfasene, ble vi enige om at dette var et produkt som vi ikke hadde funnet på markedet, men som vi egentlig har leitet etter. Vi håper appen skal gjøre det letter å nå dine mål, og at du dermed ender opp med å jobbe mer effektivt.
 
@@ -35,7 +36,7 @@ Vi ønsket å fremstille progress/fremgang grafisk, derfor tok vi i bruk dette b
 - React-Navigation:
 Vi ønsket å gjøre navigasjonen mellom komponenter enkel og rask, så vi valgte React-Navigation av flere grunner: det skrives i javascript og er dermed enkelt for oss å forstå. Det negative er at det ikke alltid er like intuitivt, men utviklerne sier selv at de jobber for å gjøre “enkle ting enkelt, og vanskelige ting mulig”.
 
-(Bildet til strukturen) 
+
 ### Plattformuavhengighet
 I oppgaven står det “Applikasjonen skal fungere både på ios og android.”. For oss har dette vært et problem -> for å teste på IOS må man ha Mac, OSX eller en iPhone. Dette er det ingen på gruppa som har, og vi har ikke funnet noen mulige måter å teste dette på uten å skaffe en iPhone/Mac. Vi har sett på muligheten for simulator, men dette er bare mulig hvis man har OSX - som man bare har på Mac. Dermed har vi ikke fått testet appen på IOS, og vet heller ikke om den fungerer på IOS. Når det er sagt, skal alle bibliotekene vi har brukt være plattform uavhengige, så det skal sannsynligvis fungere på iPhone.
 På tross av dette har vi prøvd å skrive koden slik at den skal fungere på både android og ios.
