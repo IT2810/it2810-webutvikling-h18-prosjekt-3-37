@@ -58,6 +58,7 @@ I alle våre “tutorials” tar vi utgangspunkt i at du allerede har node, npm 
 [3](https://nodejs.org/en/)
 
 **NativeBase:**
+
 [Documentation](https://docs.nativebase.io/docs/GetStarted.html)
 NativeBase er et bibliotek for UI-komponenter i React Native. Det er gratis, open-source og fungerer på både IOS og Android(og Web). NativeBase gjør det veldig lett å style komponentene sine, og gjør at de lett kan se bra ut.
 
@@ -87,6 +88,7 @@ For å importer komponenten du vil bruke, for eksempel 'Button' fra NativeBase, 
 Inkluder komponenten ved hjelp av kode-eksemplet du finner i dokumentasjonen.
 
 **VictoryNative:**
+
 https://formidable.com/open-source/victory/docs/native/
 VictoryNative gjør det enkelt å lage grafiske fremstillinger som kan tilpasses mye.
 
