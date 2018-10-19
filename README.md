@@ -104,6 +104,9 @@ Naviger til prosjektet ditt i terminalen og skriv:
 I dokumentasjonen finner man veldig mye om hvordan man bruker og tilpasser komponentene.
 
 
+
+<br><br>
+
 Obs! Du finner bilder i documentation-mappen i repoet.
 ### Testing
 Tester forsikrer oss om at all ønsket funksjonalitet virker, samt at grensesnittet renderer(konverteres) på korrekt måte. Vi har utviklet testene i henhold til oppgaven: med bruk av jest. Å få Jest til å kjøre ordentlig og uten error har det gått med utallige timer på. Det tok mye tid å endre på package.json, prøve forskjellige “transform” og “transformIgnorePatterns”, bruke --save-dev i kommandoene i terminalen - eller ikke bruke --save-dev, jest eller npm test? også videre. Omsider har vi fått testene til å kjøre uten mye om, men ganske mye men.
