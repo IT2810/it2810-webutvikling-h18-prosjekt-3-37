@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, AsyncStorage } from 'react-native';
 import TaskScreen from "./TaskScreen.js";
-import TaskDetails from "./TaskDetails.js";
+import TaskDetails from "./ActivityScreen.js";
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Text, Icon, List, ListItem, CheckBox, Item, Input } from 'native-base';
 import { createStackNavigator } from 'react-navigation';
 
@@ -131,12 +131,6 @@ export default createStackNavigator({
         }
       }
     },
-    TaskDetails: {
-      screen: TaskDetails,
-      navigationOptions: ({ navigation }) => ({
-        title: "Details",
-      })
-    }
   },
   navigationConfig
 );

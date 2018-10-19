@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, AsyncStorage } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, List, ListItem, Item, Input, CheckBox } from 'native-base';
-import TaskDetails from './TaskDetails';
+import TaskDetails from './ActivityScreen';
 import PieChart from '../components/PieChart/PieChart';
 
 export default class TaskScreen extends React.Component {
