@@ -17,8 +17,3 @@ it('renders correctly', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
-/*
-test('renderTodo', () => {
-  expect(renderToDo('Walk',true,0)).toBe(<Todo name={'Walk'} checked={true} key={0}/>)
-});
-*/

@@ -4,10 +4,6 @@ import React from 'react';
 import TaskDetails from '../screens/TaskDetails';
 import renderer from 'react-test-renderer';
 
-it('works', () => {
-  expect(true).toBeTruthy();
-});
-
 jest.mock('Platform', () => {
   const Platform = require.requireActual('Platform');
   Platform.OS = 'android';
