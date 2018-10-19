@@ -107,7 +107,7 @@ export default class TaskDetails extends React.Component {
               modalTransparent={false}
               animationType={"fade"}
               androidMode={"default"}
-              placeHolderText="Select a date to be notified"
+              placeHolderText="Set a due date"
               textStyle={{ color: "green" }}
               placeHolderTextStyle={{ color: "blue" }}
               onDateChange={this.setDate}
