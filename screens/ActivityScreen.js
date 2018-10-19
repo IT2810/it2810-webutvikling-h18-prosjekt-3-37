@@ -55,7 +55,7 @@ class ActivityScreen extends React.Component {
   }
 
   renderTodo(name, checked, index) {
-    return <Todo onClick={this.handleClickCheckbox.bind(this, index)} name={ name } checked={ checked } key={ index }/>
+    return <Todo name={ name } checked={ checked } key={ index }/>
   }
 
   render() {
