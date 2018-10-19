@@ -4,6 +4,13 @@ Når man åpner appen kommer man automatisk til en task-oversikt side. Her kan m
 
 Dersom man går inn på en spesifikt **task**, kommer de ulike oppgavene(todos) man har knyttet opp til tasken opp, sammen med en progress bar som viser hvor stor andel av oppgavene dine som er fullført. Dette er ment som motivasjonsbiten av appen, siden det så klart viser visuelt din framgang i tasken.
 
+![alt text](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-3-37/blob/master/documentation/Tasks.png)
+![alt text](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-3-37/blob/master/documentation/TaskProgress.png)
+![alt text](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-3-37/blob/master/documentation/Activities.png)
+![alt text](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-3-37/blob/master/documentation/Drawer.png)
+![alt text](https://github.com/IT2810/it2810-webutvikling-h18-prosjekt-3-37/blob/master/documentation/Activities.png)
+
+
 ### Activity:
 Foruten å velge vanlige tasks, kan man også velge **activity**. Dette er direkte knyttet opp mot skrittelleren. Målet kan derfor f.eks være 40.000 skritt innen neste mandag. Dette er et sted det ville vært naturlig å utvide, både med flere typer mål og flere tidskriterier, som for eksempel, gjentagende(daglig, ukentlig, osv), knyttet til ukedag eller lignende.
 
