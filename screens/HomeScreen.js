@@ -62,7 +62,7 @@ class HomeScreen extends React.Component {
       AsyncStorage.multiGet(keys, (err, stores) => {
         this.setState({
           dataLoaded: true
-        })
+        });
         let localItems = {};
         //Iterates through all items in the object
         stores.map((result, i, store) => {
